@@ -20,16 +20,15 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v4
+        uses: android-actions/setup-android@v3
 
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-
-      - name: Create gradle wrapper jar
+      - name: Download proper Gradle wrapper
         run: |
-          mkdir -p gradle/wrapper
-          curl -o gradle/wrapper/gradle-wrapper.jar \
+          curl -L -o gradle/wrapper/gradle-wrapper.jar \
             https://github.com/gradle/gradle/raw/v8.1.0/gradle/wrapper/gradle-wrapper.jar
+          curl -L -o gradlew \
+            https://raw.githubusercontent.com/gradle/gradle/v8.1.0/gradlew
+          chmod +x gradlew
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
