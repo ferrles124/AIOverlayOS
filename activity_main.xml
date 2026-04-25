@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#020b14"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Logo / Başlık -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="J.A.R.V.I.S."
+            android:textSize="28sp"
+            android:textColor="#a0e4ff"
+            android:textStyle="bold"
+            android:letterSpacing="0.2"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STARK INDUSTRIES · ADVANCED AI SYSTEM"
+            android:textSize="10sp"
+            android:textColor="#336688"
+            android:letterSpacing="0.15"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Durum -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚪ Hazır"
+            android:textSize="14sp"
+            android:textColor="#7ecfff"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Ayırıcı -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1a3a55"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Groq API Key -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GROQ API KEY *"
+            android:textSize="11sp"
+            android:textColor="#336688"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etGroqKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="gsk_..."
+            android:textColorHint="#224455"
+            android:textColor="#7ecfff"
+            android:inputType="textPassword"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:textSize="13sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Weather API Key -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OPENWEATHERMAP API KEY (opsiyonel)"
+            android:textSize="11sp"
+            android:textColor="#336688"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etWeatherKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="openweathermap.org'dan ücretsiz alın"
+            android:textColorHint="#224455"
+            android:textColor="#7ecfff"
+            android:inputType="textPassword"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:textSize="13sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- İsim -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KULLANICI ADI"
+            android:textSize="11sp"
+            android:textColor="#336688"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Efendim"
+            android:textColorHint="#224455"
+            android:textColor="#7ecfff"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:textSize="13sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Şehir -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ŞEHİR (hava durumu için)"
+            android:textSize="11sp"
+            android:textColor="#336688"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Istanbul"
+            android:textColorHint="#224455"
+            android:textColor="#7ecfff"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:textSize="13sp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Kaydet butonu -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="AYARLARI KAYDET"
+            android:textColor="#020b14"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:backgroundTint="#3399ff"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Başlat butonu -->
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="▶  JARVIS'İ BAŞLAT"
+            android:textColor="#020b14"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:textSize="15sp"
+            android:letterSpacing="0.1"
+            android:backgroundTint="#00cc88"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Durdur butonu -->
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="■  DURDUR"
+            android:textColor="#020b14"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:backgroundTint="#ff4444"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Komutlar rehberi -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1a3a55"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KOMUTLAR"
+            android:textSize="11sp"
+            android:textColor="#336688"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• &quot;Uyan&quot; → Durum raporu\n• &quot;Saat kaç?&quot; → Saat\n• &quot;Hava durumu&quot; → Hava\n• &quot;Pil durumu&quot; → Batarya\n• &quot;Görev ekle: ...&quot; → Görev kaydet\n• &quot;Görevleri listele&quot; → Görevler\n• &quot;10 dakika sonra hatırlat: ...&quot;\n• &quot;Ahmet'e mesaj gönder: ...&quot;\n• Diğer her şey → Groq AI"
+            android:textSize="12sp"
+            android:textColor="#557799"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+</ScrollView>
