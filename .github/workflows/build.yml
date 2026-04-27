@@ -33,27 +33,39 @@ jobs:
       - name: Create launcher icons
         run: |
           sudo apt-get install -y imagemagick
-
           declare -A sizes
           sizes["mdpi"]=48
           sizes["hdpi"]=72
           sizes["xhdpi"]=96
           sizes["xxhdpi"]=144
           sizes["xxxhdpi"]=192
-
           for density in "${!sizes[@]}"; do
             size=${sizes[$density]}
             dir="app/src/main/res/mipmap-${density}"
             mkdir -p "$dir"
-
             convert -size ${size}x${size} xc:"#020b14" \
               -fill "#3399ff" -draw "circle $((size/2)),$((size/2)) $((size/2)),$((size/4))" \
               -fill "#a0e4ff" -draw "circle $((size/2)),$((size/2)) $((size/2)),$((size*3/8))" \
               -fill "#ffffff" -draw "circle $((size/2)),$((size/2)) $((size/2)),$((size*9/20))" \
               "${dir}/ic_launcher.png"
-
             cp "${dir}/ic_launcher.png" "${dir}/ic_launcher_round.png"
           done
+
+      - name: Download fonts
+        run: |
+          mkdir -p app/src/main/res/font
+
+          # Orbitron Bold
+          curl -L -o app/src/main/res/font/orbitron_bold.ttf \
+            "https://github.com/google/fonts/raw/main/ofl/orbitron/Orbitron%5Bwght%5D.ttf"
+
+          # Orbitron Regular (same variable font, rename)
+          cp app/src/main/res/font/orbitron_bold.ttf \
+             app/src/main/res/font/orbitron_regular.ttf
+
+          # Share Tech Mono
+          curl -L -o app/src/main/res/font/share_tech_mono.ttf \
+            "https://github.com/google/fonts/raw/main/ofl/sharetechmono/ShareTechMono-Regular.ttf"
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
@@ -63,3 +75,4 @@ jobs:
         with:
           name: JARVIS-APK
           path: app/build/outputs/apk/debug/app-debug.apk
+          
