@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- JARVIS Ana Palet -->
+    <color name="bg_deep">#020b14</color>
+    <color name="bg_panel">#050f1c</color>
+    <color name="bg_card">#040d18</color>
+
+    <!-- Arc reactor mavisi -->
+    <color name="arc_blue">#3399ff</color>
+    <color name="arc_blue_light">#7ecfff</color>
+    <color name="arc_blue_dark">#0d2a42</color>
+    <color name="arc_white">#e8f4ff</color>
+    <color name="arc_dim">#335566</color>
+    <color name="arc_glow">#1a4a6a</color>
+
+    <!-- Durum renkleri -->
+    <color name="arc_green">#00cc88</color>
+    <color name="arc_red">#ff4455</color>
+    <color name="arc_orange">#ffaa00</color>
+
+    <!-- System -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="jarvis_bg">#020b14</color>
-    <color name="jarvis_blue">#7ecfff</color>
-    <color name="jarvis_accent">#3399ff</color>
 </resources>
