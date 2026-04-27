@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CommandCard">
+        <attr name="cmd_icon" format="string" />
+        <attr name="cmd_trigger" format="string" />
+        <attr name="cmd_desc" format="string" />
+    </declare-styleable>
+</resources>
