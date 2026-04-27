@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.AIOverlay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/jarvis_accent</item>
-        <item name="colorPrimaryVariant">@color/jarvis_blue</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor">@color/jarvis_bg</item>
-        <item name="android:navigationBarColor">@color/jarvis_bg</item>
-        <item name="android:windowBackground">@color/jarvis_bg</item>
+        <item name="colorPrimary">#3399ff</item>
+        <item name="colorPrimaryVariant">#7ecfff</item>
+        <item name="colorOnPrimary">#020b14</item>
+        <item name="colorSecondary">#00cc88</item>
+        <item name="colorOnSecondary">#020b14</item>
+        <item name="android:statusBarColor">#020b14</item>
+        <item name="android:navigationBarColor">#020b14</item>
+        <item name="android:windowBackground">#020b14</item>
     </style>
 </resources>
