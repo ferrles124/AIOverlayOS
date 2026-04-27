@@ -1,222 +1,466 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#020b14"
-    android:fillViewport="true">
+    android:background="@color/bg_deep">
 
-    <LinearLayout
+    <!-- Animated background canvas -->
+    <com.jarvis.aioverlay.ArcReactorView
+        android:id="@+id/arcReactorBg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="match_parent" />
 
-        <!-- Logo / Başlık -->
-        <TextView
+    <!-- Main scroll container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="J.A.R.V.I.S."
-            android:textSize="28sp"
-            android:textColor="#a0e4ff"
-            android:textStyle="bold"
-            android:letterSpacing="0.2"
-            android:gravity="center"
-            android:fontFamily="monospace"
-            android:layout_marginTop="16dp" />
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="STARK INDUSTRIES · ADVANCED AI SYSTEM"
-            android:textSize="10sp"
-            android:textColor="#336688"
-            android:letterSpacing="0.15"
-            android:gravity="center"
-            android:fontFamily="monospace"
-            android:layout_marginBottom="24dp" />
+            <!-- ═══════════════════════════════════════ -->
+            <!--           HEADER / ARC REACTOR         -->
+            <!-- ═══════════════════════════════════════ -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp">
 
-        <!-- Durum -->
-        <TextView
-            android:id="@+id/tvStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="⚪ Hazır"
-            android:textSize="14sp"
-            android:textColor="#7ecfff"
-            android:gravity="center"
-            android:fontFamily="monospace"
-            android:layout_marginBottom="24dp" />
+                <!-- Reactor glow ring -->
+                <com.jarvis.aioverlay.ReactorRingView
+                    android:id="@+id/reactorRing"
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp" />
 
-        <!-- Ayırıcı -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#1a3a55"
-            android:layout_marginBottom="20dp" />
+                <!-- Header text overlay -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="20dp">
 
-        <!-- Groq API Key -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GROQ API KEY *"
-            android:textSize="11sp"
-            android:textColor="#336688"
-            android:fontFamily="monospace"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="6dp" />
+                    <TextView
+                        android:id="@+id/tvJarvisTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="J·A·R·V·I·S"
+                        android:textSize="36sp"
+                        android:textColor="@color/arc_white"
+                        android:fontFamily="@font/orbitron_bold"
+                        android:letterSpacing="0.25"
+                        android:shadowColor="@color/arc_blue"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="20" />
 
-        <EditText
-            android:id="@+id/etGroqKey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="gsk_..."
-            android:textColorHint="#224455"
-            android:textColor="#7ecfff"
-            android:inputType="textPassword"
-            android:background="@drawable/input_bg"
-            android:padding="12dp"
-            android:fontFamily="monospace"
-            android:textSize="13sp"
-            android:layout_marginBottom="16dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JUST A RATHER VERY INTELLIGENT SYSTEM"
+                        android:textSize="7sp"
+                        android:textColor="@color/arc_dim"
+                        android:fontFamily="@font/orbitron_regular"
+                        android:letterSpacing="0.3"
+                        android:layout_marginTop="4dp" />
 
-        <!-- Weather API Key -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="OPENWEATHERMAP API KEY (opsiyonel)"
-            android:textSize="11sp"
-            android:textColor="#336688"
-            android:fontFamily="monospace"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="6dp" />
+                    <View
+                        android:layout_width="120dp"
+                        android:layout_height="1dp"
+                        android:background="@drawable/gradient_divider"
+                        android:layout_marginTop="12dp" />
 
-        <EditText
-            android:id="@+id/etWeatherKey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="openweathermap.org'dan ücretsiz alın"
-            android:textColorHint="#224455"
-            android:textColor="#7ecfff"
-            android:inputType="textPassword"
-            android:background="@drawable/input_bg"
-            android:padding="12dp"
-            android:fontFamily="monospace"
-            android:textSize="13sp"
-            android:layout_marginBottom="16dp" />
+                    <TextView
+                        android:id="@+id/tvVersion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STARK INDUSTRIES  ·  v3.1.0  ·  CLASSIFIED"
+                        android:textSize="7sp"
+                        android:textColor="@color/arc_dim"
+                        android:fontFamily="@font/share_tech_mono"
+                        android:letterSpacing="0.15"
+                        android:layout_marginTop="8dp" />
 
-        <!-- İsim -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="KULLANICI ADI"
-            android:textSize="11sp"
-            android:textColor="#336688"
-            android:fontFamily="monospace"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="6dp" />
+                </LinearLayout>
+            </FrameLayout>
 
-        <EditText
-            android:id="@+id/etUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Efendim"
-            android:textColorHint="#224455"
-            android:textColor="#7ecfff"
-            android:background="@drawable/input_bg"
-            android:padding="12dp"
-            android:fontFamily="monospace"
-            android:textSize="13sp"
-            android:layout_marginBottom="16dp" />
+            <!-- ═══════════════════════════════════════ -->
+            <!--           STATUS PANEL                  -->
+            <!-- ═══════════════════════════════════════ -->
+            <com.jarvis.aioverlay.HexPanel
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="6dp">
 
-        <!-- Şehir -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ŞEHİR (hava durumu için)"
-            android:textSize="11sp"
-            android:textColor="#336688"
-            android:fontFamily="monospace"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="6dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
 
-        <EditText
-            android:id="@+id/etCity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Istanbul"
-            android:textColorHint="#224455"
-            android:textColor="#7ecfff"
-            android:background="@drawable/input_bg"
-            android:padding="12dp"
-            android:fontFamily="monospace"
-            android:textSize="13sp"
-            android:layout_marginBottom="20dp" />
+                    <!-- Status indicator dot -->
+                    <View
+                        android:id="@+id/statusDot"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/status_dot_active" />
 
-        <!-- Kaydet butonu -->
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="AYARLARI KAYDET"
-            android:textColor="#020b14"
-            android:textStyle="bold"
-            android:fontFamily="monospace"
-            android:letterSpacing="0.1"
-            android:backgroundTint="#3399ff"
-            android:layout_marginBottom="12dp" />
+                    <TextView
+                        android:id="@+id/tvStatus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="HAZIR — SİSTEMLER NOMİNAL"
+                        android:textSize="11sp"
+                        android:textColor="@color/arc_green"
+                        android:fontFamily="@font/share_tech_mono"
+                        android:letterSpacing="0.1"
+                        android:layout_marginStart="10dp" />
 
-        <!-- Başlat butonu -->
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="▶  JARVIS'İ BAŞLAT"
-            android:textColor="#020b14"
-            android:textStyle="bold"
-            android:fontFamily="monospace"
-            android:textSize="15sp"
-            android:letterSpacing="0.1"
-            android:backgroundTint="#00cc88"
-            android:layout_marginBottom="10dp" />
+                    <!-- Live clock -->
+                    <TextView
+                        android:id="@+id/tvClock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00:00"
+                        android:textSize="12sp"
+                        android:textColor="@color/arc_blue_light"
+                        android:fontFamily="@font/share_tech_mono" />
 
-        <!-- Durdur butonu -->
-        <Button
-            android:id="@+id/btnStop"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="■  DURDUR"
-            android:textColor="#020b14"
-            android:textStyle="bold"
-            android:fontFamily="monospace"
-            android:backgroundTint="#ff4444"
-            android:layout_marginBottom="24dp" />
+                </LinearLayout>
+            </com.jarvis.aioverlay.HexPanel>
 
-        <!-- Komutlar rehberi -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#1a3a55"
-            android:layout_marginBottom="16dp" />
+            <!-- Scan line separator -->
+            <com.jarvis.aioverlay.ScanLineView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="10dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="KOMUTLAR"
-            android:textSize="11sp"
-            android:textColor="#336688"
-            android:fontFamily="monospace"
-            android:letterSpacing="0.15"
-            android:layout_marginBottom="10dp" />
+            <!-- ═══════════════════════════════════════ -->
+            <!--           CONFIG SECTION               -->
+            <!-- ═══════════════════════════════════════ -->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="• &quot;Uyan&quot; → Durum raporu\n• &quot;Saat kaç?&quot; → Saat\n• &quot;Hava durumu&quot; → Hava\n• &quot;Pil durumu&quot; → Batarya\n• &quot;Görev ekle: ...&quot; → Görev kaydet\n• &quot;Görevleri listele&quot; → Görevler\n• &quot;10 dakika sonra hatırlat: ...&quot;\n• &quot;Ahmet'e mesaj gönder: ...&quot;\n• Diğer her şey → Groq AI"
-            android:textSize="12sp"
-            android:textColor="#557799"
-            android:fontFamily="monospace"
-            android:lineSpacingExtra="4dp"
-            android:layout_marginBottom="20dp" />
+            <!-- Section label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▸ SİSTEM KONFİGÜRASYONU"
+                android:textSize="9sp"
+                android:textColor="@color/arc_dim"
+                android:fontFamily="@font/orbitron_regular"
+                android:letterSpacing="0.2"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="8dp" />
 
-    </LinearLayout>
-</ScrollView>
+            <!-- GROQ API KEY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GROQ API KEY  [ZORUNLU]"
+                    android:textSize="9sp"
+                    android:textColor="@color/arc_blue_light"
+                    android:fontFamily="@font/share_tech_mono"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginStart="4dp" />
+
+                <com.jarvis.aioverlay.JarvisEditText
+                    android:id="@+id/etGroqKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:hint="gsk_••••••••••••••••••••••••••••••••"
+                    android:inputType="textPassword"
+                    android:textSize="13sp"
+                    android:textColor="@color/arc_white"
+                    android:textColorHint="@color/arc_dim"
+                    android:fontFamily="@font/share_tech_mono"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/input_jarvis" />
+
+            </LinearLayout>
+
+            <!-- WEATHER API KEY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OPENWEATHERMAP KEY  [OPSİYONEL]"
+                    android:textSize="9sp"
+                    android:textColor="@color/arc_blue_light"
+                    android:fontFamily="@font/share_tech_mono"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginStart="4dp" />
+
+                <com.jarvis.aioverlay.JarvisEditText
+                    android:id="@+id/etWeatherKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:hint="openweathermap.org → free tier"
+                    android:inputType="textPassword"
+                    android:textSize="13sp"
+                    android:textColor="@color/arc_white"
+                    android:textColorHint="@color/arc_dim"
+                    android:fontFamily="@font/share_tech_mono"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/input_jarvis" />
+
+            </LinearLayout>
+
+            <!-- NAME + CITY row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- User name -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KULLANICI"
+                        android:textSize="9sp"
+                        android:textColor="@color/arc_blue_light"
+                        android:fontFamily="@font/share_tech_mono"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginStart="4dp" />
+
+                    <com.jarvis.aioverlay.JarvisEditText
+                        android:id="@+id/etUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Efendim"
+                        android:textSize="13sp"
+                        android:textColor="@color/arc_white"
+                        android:textColorHint="@color/arc_dim"
+                        android:fontFamily="@font/share_tech_mono"
+                        android:paddingHorizontal="16dp"
+                        android:background="@drawable/input_jarvis" />
+
+                </LinearLayout>
+
+                <!-- City -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ŞEHİR"
+                        android:textSize="9sp"
+                        android:textColor="@color/arc_blue_light"
+                        android:fontFamily="@font/share_tech_mono"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginStart="4dp" />
+
+                    <com.jarvis.aioverlay.JarvisEditText
+                        android:id="@+id/etCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Istanbul"
+                        android:textSize="13sp"
+                        android:textColor="@color/arc_white"
+                        android:textColorHint="@color/arc_dim"
+                        android:fontFamily="@font/share_tech_mono"
+                        android:paddingHorizontal="16dp"
+                        android:background="@drawable/input_jarvis" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- SAVE BUTTON -->
+            <com.jarvis.aioverlay.JarvisButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="KAYDET  //  BELLEĞE YAZ"
+                android:textSize="11sp"
+                android:textColor="@color/arc_blue_light"
+                android:fontFamily="@font/orbitron_bold"
+                android:letterSpacing="0.15"
+                android:background="@drawable/btn_secondary" />
+
+            <com.jarvis.aioverlay.ScanLineView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp" />
+
+            <!-- ═══════════════════════════════════════ -->
+            <!--         POWER CONTROLS                 -->
+            <!-- ═══════════════════════════════════════ -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▸ GÜÇ KONTROLÜ"
+                android:textSize="9sp"
+                android:textColor="@color/arc_dim"
+                android:fontFamily="@font/orbitron_regular"
+                android:letterSpacing="0.2"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- START BUTTON — the hero button -->
+            <com.jarvis.aioverlay.JarvisButton
+                android:id="@+id/btnStart"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="10dp"
+                android:text="⬡  SİSTEMLERİ AKTİF ET"
+                android:textSize="15sp"
+                android:textColor="@color/bg_deep"
+                android:fontFamily="@font/orbitron_bold"
+                android:letterSpacing="0.15"
+                android:background="@drawable/btn_start_primary" />
+
+            <!-- STOP BUTTON -->
+            <com.jarvis.aioverlay.JarvisButton
+                android:id="@+id/btnStop"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="20dp"
+                android:text="◼  DEVRE DIŞI BIRAK"
+                android:textSize="11sp"
+                android:textColor="@color/arc_red"
+                android:fontFamily="@font/orbitron_bold"
+                android:letterSpacing="0.15"
+                android:background="@drawable/btn_stop" />
+
+            <com.jarvis.aioverlay.ScanLineView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ═══════════════════════════════════════ -->
+            <!--         COMMAND REFERENCE              -->
+            <!-- ═══════════════════════════════════════ -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▸ KOMUT REHBERİ  //  SINIFLANDIRILMIŞ"
+                android:textSize="9sp"
+                android:textColor="@color/arc_dim"
+                android:fontFamily="@font/orbitron_regular"
+                android:letterSpacing="0.2"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Command cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="16dp">
+
+                <com.jarvis.aioverlay.CommandCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cmd_icon="⏰"
+                    app:cmd_trigger="&quot;Uyan&quot;"
+                    app:cmd_desc="Tam durum raporu: saat, hava, pil, görevler" />
+
+                <com.jarvis.aioverlay.CommandCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cmd_icon="🌤"
+                    app:cmd_trigger="&quot;Hava durumu&quot;"
+                    app:cmd_desc="OpenWeatherMap ile anlık hava bilgisi" />
+
+                <com.jarvis.aioverlay.CommandCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cmd_icon="📝"
+                    app:cmd_trigger="&quot;Görev ekle: ...&quot;"
+                    app:cmd_desc="Kalıcı görev listesine ekle" />
+
+                <com.jarvis.aioverlay.CommandCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cmd_icon="🔔"
+                    app:cmd_trigger="&quot;10 dakika sonra hatırlat: ...&quot;"
+                    app:cmd_desc="Sistem bildirimi ile hatırlatıcı" />
+
+                <com.jarvis.aioverlay.CommandCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cmd_icon="💬"
+                    app:cmd_trigger="&quot;Ahmet'e mesaj gönder: ...&quot;"
+                    app:cmd_desc="SMS uygulamasını hazır mesajla aç" />
+
+                <com.jarvis.aioverlay.CommandCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cmd_icon="🤖"
+                    app:cmd_trigger="Diğer her şey"
+                    app:cmd_desc="Groq llama-3.3-70b ile akıllı sohbet" />
+
+            </LinearLayout>
+
+            <!-- Bottom signature -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="STARK INDUSTRIES  ·  CLASSIFIED LEVEL 5  ·  DO NOT DISTRIBUTE"
+                android:textSize="7sp"
+                android:textColor="@color/arc_dim"
+                android:fontFamily="@font/share_tech_mono"
+                android:letterSpacing="0.1"
+                android:gravity="center"
+                android:layout_marginTop="24dp"
+                android:alpha="0.4" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
